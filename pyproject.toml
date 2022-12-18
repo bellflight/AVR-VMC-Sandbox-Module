@@ -8,9 +8,9 @@
     authors     = ["Nathan Vaughn <nvaughn51@gmail.com>"]
 
 [tool.poetry.dependencies]
-    python                              = ">=3.9,<3.12"
-    loguru                              = "^0.6.0"
-    bell-avr-libraries                  = { extras = ["mqtt"], version = "^0.1.12" }
+    python             = ">=3.9,<3.12"
+    loguru             = "^0.6.0"
+    bell-avr-libraries = { extras = ["mqtt"], version = "^0.1.12" }
 
 [tool.poetry.group.dev.dependencies]
     black            = "^22.10.0"
