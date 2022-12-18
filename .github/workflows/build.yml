@@ -1,0 +1,14 @@
+name: Build Sandbox Module
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches:
+      - main
+      - develop
+
+jobs:
+  checks:
+    uses: bellflight/github-actions/avr_build_and_push_container.yml
+    with:
+      container_name: Sandbox
