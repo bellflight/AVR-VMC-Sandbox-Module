@@ -8,7 +8,7 @@ on:
       - develop
 
 jobs:
-  checks:
+  build:
     uses: bellflight/github-actions/.github/workflows/avr_build_and_push_container.yml@main
     with:
       container_name: Sandbox
