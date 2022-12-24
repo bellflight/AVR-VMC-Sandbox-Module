@@ -9,7 +9,7 @@
 # This begins the process of building our container off the standard Python
 # image. The version tag (after the colon), is the Python version (3.11).
 # https://hub.docker.com/_/python
-FROM docker.io/library/python:3.11-alpine AS poetry-exporter
+FROM docker.io/library/python:3.11 AS poetry-exporter
 
 # Change the working directory to /work
 WORKDIR /work
