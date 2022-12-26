@@ -45,7 +45,7 @@ RUN python -m pip install pip wheel --upgrade \
  && python -m pip install -r requirements.txt
 
 # Now, copy everything else in this folder into the container.
-COPY . .
+COPY src .
 
 # Finally, start the container running our code.
 CMD ["python", "sandbox.py"]
