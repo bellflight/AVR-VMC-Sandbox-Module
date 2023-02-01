@@ -1,6 +1,17 @@
 # AVR-VMC-Sandbox-Module
 
-The Sandbox module is where student autonomy code lives.
+The Sandbox module is where student autonomy code lives. This repo is merely
+a template. For students to use, they should
+[fork](https://github.com/bellflight/AVR-VMC-Sandbox-Module/fork) the repo,
+and then clone their version on the VMC:
+
+```bash
+ssh drone@10.42.0.1
+cd AVR-VMC/modules
+git clone https://github.com/yourusername/AVR-VMC-Sandbox-Module sandbox
+```
+
+It also recommended to delete the `.github` folder from your fork.
 
 ## Development
 
