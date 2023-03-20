@@ -2,8 +2,8 @@
 # code related to connecting to the MQTT server and sending/receiving messages.
 # It also helps us make sure that our code is sending the proper payload on a topic
 # and is receiving the proper payload as well.
-from bell.avr.mqtt.client import MQTTModule
-from bell.avr.mqtt.payloads import AvrFcmVelocityPayload
+from bell.avr.mqtt.module import MQTTModule
+from bell.avr.mqtt.payloads import AVRFCMVelocity, AVRPCMServo
 
 # This imports the third-party Loguru library which helps make logging way easier
 # and more useful.
@@ -37,12 +37,14 @@ class Sandbox(MQTTModule):
     # Here's an example of a custom message handler here.
     # This is what executes whenever a message is received on the "avr/fcm/velocity"
     # topic. The content of the message is passed to the `payload` argument.
-    # The `AvrFcmVelocityMessage` class here is beyond the scope of AVR.
-    def show_velocity(self, payload: AvrFcmVelocityPayload) -> None:
-        vx = payload["vX"]
-        vy = payload["vY"]
-        vz = payload["vZ"]
-        v_ms = (vx, vy, vz)
+    # The `AVRFCMVelocity` class here is beyond the scope of AVR.
+    def show_velocity(self, payload: AVRFCMVelocity) -> None:
+        # in VS Code, hover over Vn, Ve, Vd with your mouse to see a
+        # description of what each value represents and what unit it is in.
+        vn = payload.Vn
+        ve = payload.Ve
+        vd = payload.Vd
+        v_ms = (vn, ve, vd)
 
         # Use methods like `debug`, `info`, `success`, `warning`, `error`, and
         # `critical` to log data that you can see while your code runs.
@@ -60,10 +62,10 @@ class Sandbox(MQTTModule):
         # Pro-tip, if you set `python.analysis.typeCheckingMode` to `basic` in you
         # VS Code preferences, you'll get a red underline if your payload doesn't
         # match the expected format for the topic.
-        self.send_message(
-            "avr/pcm/set_servo_open_close",
-            {"servo": 0, "action": "open"},
-        )
+
+        # Also see https://bellflight.github.io/AVR-Python-Libraries
+        # for extensive documentation.
+        self.send_message("avr/pcm/servo/open", AVRPCMServo(servo=0))
 
 
 if __name__ == "__main__":

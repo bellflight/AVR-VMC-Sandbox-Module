@@ -1,4 +1,5 @@
 [tool.poetry]
+    # Information about our project.
     name        = "bell-avr-vmc-sandbox-module"
     version     = "0.1.0"
     description = "Student autonomy module for Bell AVR"
@@ -9,13 +10,23 @@
 
 [tool.poetry.dependencies]
     python             = ">=3.9,<3.12"
+    # These dependencies are external packages that we download
+    # and use to help us build our project. Instead of writing the same
+    # code lots of times, we can download and install the code
+    # to share it between projects. Additionally, we can use code
+    # other people have written.
     loguru             = "^0.6.0"
-    bell-avr-libraries = { extras = ["mqtt"], version = "^0.1.12" }
+    bell-avr-libraries = "0.2.0a0"
 
 [tool.poetry.group.dev.dependencies]
-    pre-commit = "^2.21.0"
+    # These dependencies are only installed in a development environment.
+    # These are tools that help us write better code, but are not needed
+    # when the code runs.
+    pre-commit = "^3.2.0"
 
 [tool.pyright]
+    # These settings are required for the `pyright` tool to work
+    # correctly with `pre-commit`.
     typeCheckingMode = "basic"
     venvPath         = "."
     venv             = ".venv"
