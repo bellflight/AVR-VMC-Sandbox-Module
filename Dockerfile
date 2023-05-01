@@ -14,14 +14,15 @@ FROM docker.io/library/python:3.11 AS poetry-exporter
 # Change the working directory to /work
 WORKDIR /work
 
+# Install the Python Poetry package manager
+RUN python -m pip install poetry
+
 # Copy two files from our local machine to the container
 COPY pyproject.toml pyproject.toml
 COPY poetry.lock poetry.lock
 
-# Install the Python Poetry package manager, and export a requirements.txt file.
-RUN python -m pip install poetry \
- && poetry export -o requirements.txt
-
+# Export a requirements.txt file from Poetry.
+RUN poetry export -o requirements.txt
 
 # Here, we are taking advantage of a feature of the Dockerfile called
 # "multi-stage" builds. This allows us to copy files generated from the one stage
