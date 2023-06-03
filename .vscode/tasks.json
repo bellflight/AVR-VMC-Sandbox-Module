@@ -1,0 +1,16 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "pre-commit",
+            "type": "shell",
+            "command": "poetry run pre-commit run --all-files",
+            "dependsOn": ["install"]
+        },
+        {
+            "label": "install",
+            "command": "poetry install --sync",
+            "type": "shell"
+        }
+    ]
+}
