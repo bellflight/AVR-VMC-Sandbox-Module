@@ -5,21 +5,27 @@ updates:
     schedule:
       interval: "monthly"
     target-branch: "develop"
-
-  - package-ecosystem: "npm"
-    directory: "/"
-    schedule:
-      interval: "monthly"
-    target-branch: "develop"
+    groups:
+      github-actions-all:
+        patterns:
+          - "*"
 
   - package-ecosystem: "pip"
     directory: "/"
     schedule:
       interval: "monthly"
     target-branch: "develop"
+    groups:
+      pip-all:
+        patterns:
+          - "*"
 
   - package-ecosystem: "docker"
     directory: "/"
     schedule:
       interval: "monthly"
     target-branch: "develop"
+    groups:
+      docker-all:
+        patterns:
+          - "*"

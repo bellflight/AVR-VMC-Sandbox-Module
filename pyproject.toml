@@ -9,20 +9,23 @@
     authors     = ["Nathan Vaughn <nvaughn51@gmail.com>"]
 
 [tool.poetry.dependencies]
-    python             = ">=3.9,<3.12"
+    python = ">=3.9,<3.12"
     # These dependencies are external packages that we download
     # and use to help us build our project. Instead of writing the same
     # code lots of times, we can download and install the code
     # to share it between projects. Additionally, we can use code
     # other people have written.
-    loguru             = "^0.6.0"
-    bell-avr-libraries = "0.2.0a0"
+    loguru             = "0.7.0"
+    bell-avr-libraries = "0.2.0a4"
 
 [tool.poetry.group.dev.dependencies]
     # These dependencies are only installed in a development environment.
     # These are tools that help us write better code, but are not needed
     # when the code runs.
-    pre-commit = "^3.2.0"
+    pre-commit = "3.3.3"
+    # Required to be able to properly export
+    # The `typing-extensions` package has the following compatible candidates `[Package('typing-extensions', '4.6.3')]`;  but, the exporter dependency walker previously elected `typing-extensions (4.7.0)` which is not compatible with the dependency `typing-extensions (>=4.6.0,<4.7.0)`. Please contribute to `poetry-plugin-export` to solve this problem.
+    typing-extensions = "4.6.3"
 
 [tool.pyright]
     # These settings are required for the `pyright` tool to work
@@ -30,6 +33,8 @@
     typeCheckingMode = "basic"
     venvPath         = "."
     venv             = ".venv"
+    # This enables warnings for missing type hints
+    reportMissingParameterType = true
 
 [tool.ruff]
     # Ignore line too long. In some cases, black doesn't know how
