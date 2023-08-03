@@ -23,9 +23,6 @@
     # These are tools that help us write better code, but are not needed
     # when the code runs.
     pre-commit = "3.3.3"
-    # Required to be able to properly export
-    # The `typing-extensions` package has the following compatible candidates `[Package('typing-extensions', '4.6.3')]`;  but, the exporter dependency walker previously elected `typing-extensions (4.7.0)` which is not compatible with the dependency `typing-extensions (>=4.6.0,<4.7.0)`. Please contribute to `poetry-plugin-export` to solve this problem.
-    typing-extensions = "4.6.3"
 
 [tool.pyright]
     # These settings are required for the `pyright` tool to work
