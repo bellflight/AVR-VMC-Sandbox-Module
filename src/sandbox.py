@@ -32,7 +32,7 @@ class Sandbox(MQTTModule):
         # find the associated capital. However, this does not work in reverse. So here,
         # we're creating a dictionary of MQTT topics, and the methods we want to run
         # whenever a message arrives on that topic.
-        self.topic_map = {"avr/fcm/velocity": self.show_velocity}
+        self.topic_callbacks = {"avr/fcm/velocity": self.show_velocity}
 
     # Here's an example of a custom message handler here.
     # This is what executes whenever a message is received on the "avr/fcm/velocity"
