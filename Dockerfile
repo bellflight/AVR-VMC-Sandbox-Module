@@ -15,7 +15,7 @@ FROM docker.io/library/python:3.12 AS poetry-exporter
 WORKDIR /work
 
 # Install the Python Poetry package manager
-RUN python -m pip install poetry
+RUN python -m pip install poetry poetry-plugin-export
 
 # Copy two files from our local machine to the container
 COPY pyproject.toml pyproject.toml
